@@ -1,24 +1,19 @@
 package com.wikitude.samples;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wikitude.samples.utils.urllauncher.ApiHandler;
 import com.wikitude.sdksamples.R;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
 public class SamplePoiDetailActivity extends Activity {
 
 	public static final String EXTRAS_KEY_POI_ID = "id";
-	public static final String EXTRAS_KEY_POI_TITILE = "title";
+	public static final String EXTRAS_KEY_POI_TITLE = "title";
 	public static final String EXTRAS_KEY_POI_DESCR = "description";
 
 	public  String boardId;
@@ -28,7 +23,7 @@ public class SamplePoiDetailActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.sample_poidetail);
 		boardId = getIntent().getExtras().getString(EXTRAS_KEY_POI_ID);
-
+		EditText editText = (EditText) findViewById(R.id.message);
 	}
 
 	private void createPostHit(final String message){
@@ -53,8 +48,17 @@ public class SamplePoiDetailActivity extends Activity {
 
 		EditText editText = (EditText) findViewById(R.id.message);
 		String message = editText.getText().toString();
-		createPostHit(message);
-		finish();
-	}
 
+		if (message.length() != 0){
+			createPostHit(message);
+			finish();
+		}
+		else{
+            Context context = getApplicationContext();
+            CharSequence text = "Votre post hit ne peut etre vide!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+	}
 }

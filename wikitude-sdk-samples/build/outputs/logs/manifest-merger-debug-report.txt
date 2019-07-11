@@ -1,0 +1,202 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:2:1-93:12
+	package
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:5:5-32
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+	android:versionCode
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:4:5-31
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:2:11-69
+	android:installLocation
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:6:5-35
+uses-permission#android.permission.INTERNET
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:8:22-64
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:10:22-76
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:11:22-76
+uses-permission#android.permission.OPEN_NETWORK_SOCKET
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:12:5-78
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:12:22-75
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:13:5-76
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:13:22-73
+uses-permission#android.permission.ACCESS_GPS
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:14:5-69
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:14:22-66
+uses-permission#android.permission.CAMERA
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:15:5-65
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:15:22-62
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:16:5-81
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:16:22-78
+uses-feature#0x00020000
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:19:5-78
+	android:glEsVersion
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:19:19-51
+	android:required
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:19:52-75
+uses-feature#android.hardware.camera
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:22:2-81
+	android:required
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:22:55-78
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:22:16-54
+uses-feature#android.hardware.location
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:25:2-83
+	android:required
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:25:57-80
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:25:16-56
+uses-feature#android.hardware.sensor.accelerometer
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:28:2-95
+	android:required
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:28:69-92
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:28:16-68
+uses-feature#android.hardware.sensor.compass
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:31:2-89
+	android:required
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:31:63-86
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:31:16-62
+supports-screens
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:34:2-37:35
+	android:largeScreens
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:35:33-60
+	android:smallScreens
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:35:4-32
+	android:normalScreens
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:36:4-32
+	android:xlargeScreens
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:37:4-32
+	android:anyDensity
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:36:33-58
+uses-sdk
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:39:5-41:41
+MERGED from [:wikitudesdk:] C:\Users\rasra\.android\build-cache\855ebe3bfee0537cf7fe29c31ad34ed253cde7d9\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\rasra\.android\build-cache\fcf1739d52befa0edd89d569aa261a2dded19833\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\rasra\.android\build-cache\56891e892ad3c73b88323017a743470fe08466cc\output\AndroidManifest.xml:7:5-43
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:24.1.1] C:\Users\rasra\.android\build-cache\fcf1739d52befa0edd89d569aa261a2dded19833\output\AndroidManifest.xml:23:9-51
+	android:targetSdkVersion
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:41:9-38
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:40:9-35
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+		INJECTED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml
+application
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:45:5-91:19
+MERGED from [:wikitudesdk:] C:\Users\rasra\.android\build-cache\855ebe3bfee0537cf7fe29c31ad34ed253cde7d9\output\AndroidManifest.xml:11:5-19:19
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\rasra\.android\build-cache\fcf1739d52befa0edd89d569aa261a2dded19833\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\rasra\.android\build-cache\56891e892ad3c73b88323017a743470fe08466cc\output\AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:48:9-41
+	android:resizeableActivity
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:50:9-43
+	android:allowBackup
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:46:9-35
+	android:icon
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:47:9-45
+	android:theme
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:49:9-40
+activity#com.wikitude.samples.MainActivity
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:51:9-59:20
+	android:label
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:53:13-45
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:52:13-61
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:54:13-58:29
+action#android.intent.action.MAIN
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:55:17-69
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:55:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:57:17-77
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:57:27-74
+activity#com.wikitude.samples.Register
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:63:9-65
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:63:19-63
+activity#com.wikitude.samples.Forgot
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:65:9-63
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:65:19-61
+activity#com.wikitude.samples.SamplePoiDetailActivity
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:68:9-80
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:68:19-78
+activity#com.wikitude.samples.PostHitActivity
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:71:9-134
+	android:configChanges
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:71:71-132
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:71:19-70
+activity#com.wikitude.samples.AutoHdPostHitActivity
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:72:9-140
+	android:configChanges
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:72:77-138
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:72:19-76
+activity#com.wikitude.samples.utils.urllauncher.ARchitectUrlLauncherActivity
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:74:9-76:62
+	android:label
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:76:13-59
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:75:13-95
+activity#com.wikitude.samples.utils.urllauncher.ARchitectUrlLauncherCamActivity
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:77:9-80:62
+	android:label
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:80:13-59
+	android:configChanges
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:79:13-59
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:78:13-98
+activity#com.wikitude.tools.activities.MediaPlayerActivity
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:83:3-89:14
+MERGED from [:wikitudesdk:] C:\Users\rasra\.android\build-cache\855ebe3bfee0537cf7fe29c31ad34ed253cde7d9\output\AndroidManifest.xml:15:9-18:20
+	android:screenOrientation
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:84:4-41
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:83:13-77
+intent-filter#android.intent.action.VIEW+android.intent.category.DEFAULT
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:85:4-88:20
+action#android.intent.action.VIEW
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:86:5-57
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:86:13-54
+category#android.intent.category.DEFAULT
+ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:87:5-64
+	android:name
+		ADDED from D:\ETNAFiles\Master1\tmp\Post-Hit\wikitude-sdk-samples\src\main\AndroidManifest.xml:87:15-61
+activity#com.wikitude.architect.BrowserActivity
+ADDED from [:wikitudesdk:] C:\Users\rasra\.android\build-cache\855ebe3bfee0537cf7fe29c31ad34ed253cde7d9\output\AndroidManifest.xml:14:9-75
+	android:name
+		ADDED from [:wikitudesdk:] C:\Users\rasra\.android\build-cache\855ebe3bfee0537cf7fe29c31ad34ed253cde7d9\output\AndroidManifest.xml:14:19-72

@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\drawable\\mainactivity.png",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\drawable\\mainactivity.png"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\drawable\\register.png",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\drawable\\register.png"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\drawable\\forgot.png",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\drawable\\forgot.png"
+    }
+]

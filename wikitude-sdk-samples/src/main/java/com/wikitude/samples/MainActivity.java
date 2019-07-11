@@ -21,15 +21,28 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.wikitude.architect.ArchitectView;
 import com.wikitude.architect.ArchitectStartupConfiguration;
 import com.wikitude.common.util.SDKBuildInformation;
+import com.wikitude.samples.utils.urllauncher.APIService;
+import com.wikitude.samples.utils.urllauncher.ApiHandler;
 import com.wikitude.sdksamples.R;
 import com.wikitude.tools.device.features.MissingDeviceFeatures;
+
+import org.json.JSONException;
 
 
 /**
@@ -38,266 +51,96 @@ import com.wikitude.tools.device.features.MissingDeviceFeatures;
  */
 public class MainActivity extends ListActivity{
 
-	private Map<Integer, List<SampleMeta>> samples;
+	public static final String EXTRAS_KEY_ACTIVITY_TITLE_STRING = "activityTitle";
+	public static final String EXTRAS_KEY_ACTIVITY_ARCHITECT_WORLD_URL = "activityArchitectWorldUrl";
 
-	private Set<String> irSamples;
-	private Set<String> geoSamples;
-	private Set<String> instantSamples;
-	private Set<String> objectSamples;
+	public static final String EXTRAS_KEY_ACTIVITY_IR = "activityIr";
+	public static final String EXTRAS_KEY_ACTIVITY_GEO = "activityGeo";
+	public static final String EXTRAS_KEY_ACTIVITY_INSTANT = "activityInstant";
+	public static final String EXTRAS_KEY_API_ENDPOINT = "apiEndPoint";
+	public String API_ENDPOINT = "";
+
+	private String API_TOKEN = "";
+	public RequestQueue queue;
+
 
 	@Override
 	protected void onCreate( Bundle savedInstanceState ) {
 		super.onCreate( savedInstanceState );
-
-		irSamples = getListFrom("samples/samples_ir.lst");
-		geoSamples = getListFrom("samples/samples_geo.lst");
-		instantSamples = getListFrom("samples/samples_instant.lst");
-		objectSamples = getListFrom("samples/samples_object.lst");
-
-		this.setContentView( this.getContentViewId() );
-
+		queue = Volley.newRequestQueue(this);
 		// ensure to clean cache when it is no longer required
 		ArchitectView.deleteRootCacheDirectory(this);
-
-		// extract names of samples from res/arrays
-		final String[] values = this.getListLabels();
-
-		// use default list-ArrayAdapter */
-		this.setListAdapter( new ArrayAdapter<String>( this, android.R.layout.simple_list_item_1, android.R.id.text1, values ) );
-
-		final int abTitleId = getResources().getIdentifier("action_bar_title", "id", "android");
-		findViewById(abTitleId).setOnLongClickListener(new View.OnLongClickListener() {
-			@Override
-			public boolean onLongClick(View v) {
-				SDKBuildInformation sdkBuildInformation = ArchitectView.getSDKBuildInformation();
-				new AlertDialog.Builder(MainActivity.this)
-						.setTitle("Build information")
-						.setMessage(
-								"Build configuration: " + sdkBuildInformation.getBuildConfiguration() + "\n" +
-								"Build date: " + sdkBuildInformation.getBuildDate() + "\n" +
-								"Build number: " + sdkBuildInformation.getBuildNumber() + "\n" +
-								"Build version: " + ArchitectView.getSDKVersion()
-						)
-						.show();
-				return false;
-			}
-		});
+		this.setContentView(R.layout.list_startscreen );
+		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 	}
 
-	private Set<String> getListFrom(String fname) {
-		HashSet<String> data = new HashSet<String>();
-		try {
-			BufferedReader burr = new BufferedReader(new InputStreamReader(getAssets().open(fname)));
-			String line;
-			while ((line = burr.readLine()) != null) {
-				data.add(line);
-			}
-			burr.close();
-		} catch (FileNotFoundException e) {
-			Log.w("Wikitude SDK Samples", "Can't read list from file " + fname);
-		} catch (IOException e) {
-			Log.w("Wikitude SDK Samples", "Can't read list from file " + fname);
+	public void onClickForgotPassword(View view){
+		final String className = "com.wikitude.samples.Forgot";
+		final Intent intent;
+		try{
+			intent= new Intent(this, Class.forName(className));
+			this.startActivityForResult( intent , 200);
+
+		}catch(Exception e){
+			e.printStackTrace();
 		}
-		return data;
 	}
 
-	@Override
-	protected void onListItemClick( ListView l, View v, int position, long id ) {
-		super.onListItemClick( l, v, position, id );
+	public void onClickRegister(View view){
+		final String className = "com.wikitude.samples.Register";
+		final Intent intent;
+		try{
+			intent= new Intent(this, Class.forName(className));
+			this.startActivityForResult( intent , 200);
 
-			final Intent intent = new Intent( this, MainSamplesListActivity.class );
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 
-			final List<SampleMeta> activitiesToLaunch = getActivitiesToLaunch(position);
-			final String activityTitle = activitiesToLaunch.get(0).categoryName.replace("$", " ");
-			String[] activityTitles = new String[activitiesToLaunch.size()];
-			String[] activityUrls = new String[activitiesToLaunch.size()];
-			String[] activityClasses = new String[activitiesToLaunch.size()];
+	public void onClickLogin(View view){
 
-			boolean[] activitiesIr = new boolean[activitiesToLaunch.size()];
-			boolean[] activitiesGeo = new boolean[activitiesToLaunch.size()];
-			boolean[] activitiesInstant = new boolean[activitiesToLaunch.size()];
+		// getting values
+		EditText inputId = (EditText)findViewById(R.id.inputId);
+		EditText inputPassword = (EditText)findViewById(R.id.InputPassword);
+		String login = inputId.getText().toString();
+		String password = inputPassword.getText().toString();
 
-			// check if AR.VideoDrawables are supported on the current device. if not -> show hint-Toast message
-			if (activitiesToLaunch.get(0).categoryName.contains("Video") && ! MainActivity.isVideoDrawablesSupported()) {
-				Toast.makeText(this, R.string.videosrawables_fallback, Toast.LENGTH_LONG).show();
+		if (login.length() > 0 && password.length() > 0){
+			// call route authentification
+
+			APIService api =  APIService.getInstance();
+			api.loginCheck(this, login, password);
+		}else{
+			if (login.length() == 0){ // login empty
+				Toast.makeText(MainActivity.this,"Type a login to log in",Toast.LENGTH_LONG).show();
 			}
-
-			// find out which Activity to launch when sample row was pressed, some handle AR.platform.sendJSONObject, others inject poi data from native via javascript
-			for (int i= 0; i< activitiesToLaunch.size(); i++) {
-				final SampleMeta meta = activitiesToLaunch.get(i);
-
-				activityTitles[i] = (meta.sampleName.replace("$", " "));
-				activityUrls[i] = meta.path;
-				activitiesIr[i] = meta.hasIr;
-				activitiesGeo[i] = meta.hasGeo;
-				activitiesInstant[i] = meta.hasInstant;
-
-				if (meta.categoryId.equals("02") && meta.sampleId==3) {
-					activityClasses[i] = ("com.wikitude.samples.SampleCamActivity");
-				} else if (meta.categoryId.equals("04")) {
-					activityClasses[i] = ("com.wikitude.samples.SampleCamActivity");
-				} else if (meta.categoryId.equals("05")){
-					activityClasses[i] = ("com.wikitude.samples.SampleCamActivity");
-				} else if (meta.categoryId.equals("09") && meta.sampleId==1) {
-					activityClasses[i] = ("com.wikitude.samples.SampleCamContentFromNativeActivity");
-				} else if (meta.categoryId.equals("12") && meta.sampleId==1) {
-					activityClasses[i] = ("com.wikitude.samples.SampleFrontCamActivity");
-				} else if (meta.categoryId.equals("12") && meta.sampleId==3) {
-					activityClasses[i] = ("com.wikitude.samples.SampleCam2Activity");
-				} else if (meta.categoryId.equals("13") && meta.sampleId==1) {
-					activityClasses[i] = ("com.wikitude.samples.SamplePluginActivity");
-                } else if (meta.categoryId.equals("13") && meta.sampleId==2) {
-                    activityClasses[i] = ("com.wikitude.samples.FaceDetectionPluginActivity");
-				} else if (meta.categoryId.equals("13") && meta.sampleId==3) {
-					activityClasses[i] = ("com.wikitude.samples.SimpleInputPluginActivity");
-				} else if (meta.categoryId.equals("13") && meta.sampleId==4) {
-					activityClasses[i] = ("com.wikitude.samples.CustomCameraActivity");
-				} else if (meta.categoryId.equals("13") && meta.sampleId==5) {
-					activityClasses[i] = ("com.wikitude.samples.MarkerTrackingPluginActivity");
-				} else {
-					activityClasses[i] = ("com.wikitude.samples.AutoHdSampleCamActivity");
-				}
+			else if (password.length() == 0){ // password empty
+				Toast.makeText(MainActivity.this,"Password cannot be empty.",Toast.LENGTH_LONG).show();
 			}
+		}
+	}
 
-			intent.putExtra(MainSamplesListActivity.EXTRAS_KEY_ACTIVITIES_ARCHITECT_WORLD_URLS_ARRAY, activityUrls);
-			intent.putExtra(MainSamplesListActivity.EXTRAS_KEY_ACTIVITIES_CLASSNAMES_ARRAY, activityClasses);
-			intent.putExtra(MainSamplesListActivity.EXTRAS_KEY_ACTIVITIES_TILES_ARRAY, activityTitles);
-			intent.putExtra(MainSamplesListActivity.EXTRAS_KEY_ACTIVITIES_IR_ARRAY, activitiesIr);
-			intent.putExtra(MainSamplesListActivity.EXTRAS_KEY_ACTIVITIES_GEO_ARRAY, activitiesGeo);
-			intent.putExtra(MainSamplesListActivity.EXTRAS_KEY_ACTIVITIES_INSTANT_ARRAY, activitiesInstant);
-			intent.putExtra(MainSamplesListActivity.EXTRAS_KEY_ACTIVITY_TITLE_STRING, activityTitle);
+	public void goPostHitActivity(String token){
 
-			/* launch activity */
+		API_TOKEN = token;
+		final String className = "com.wikitude.samples.AutoHdPostHitActivity";
+		final Intent intent;
+		try{
+			intent= new Intent(this, Class.forName(className));
+
+			intent.putExtra(EXTRAS_KEY_ACTIVITY_TITLE_STRING, "PostHit");
+			intent.putExtra(EXTRAS_KEY_ACTIVITY_ARCHITECT_WORLD_URL, "samples/10_Launch$app_5_PostHit/index.html");
+			intent.putExtra(EXTRAS_KEY_ACTIVITY_IR, false);
+			intent.putExtra(EXTRAS_KEY_ACTIVITY_GEO, true);
+			intent.putExtra(EXTRAS_KEY_ACTIVITY_INSTANT, false);
+			intent.putExtra(API_ENDPOINT, Constants.API_ENDPOINT);
+			intent.putExtra(EXTRAS_KEY_API_ENDPOINT, API_TOKEN);
 			this.startActivity( intent );
-
-	}
-
-	protected final String[] getListLabels() {
-		boolean includeIR = (ArchitectView.getSupportedFeaturesForDevice(getApplicationContext()) & ArchitectStartupConfiguration.Features.ImageTracking) != 0;
-		boolean includeGeo = (ArchitectView.getSupportedFeaturesForDevice(getApplicationContext()) & ArchitectStartupConfiguration.Features.Geo) != 0;
-		boolean includeInstant = (ArchitectView.getSupportedFeaturesForDevice(getApplicationContext()) & ArchitectStartupConfiguration.Features.InstantTracking) != 0;
-		boolean includeObject = (ArchitectView.getSupportedFeaturesForDevice(getApplicationContext()) & ArchitectStartupConfiguration.Features.ObjectTracking) != 0;
-
-		MissingDeviceFeatures missingDeviceFeatures = ArchitectView.isDeviceSupported(this,
-				ArchitectStartupConfiguration.Features.ImageTracking | ArchitectStartupConfiguration.Features.Geo | ArchitectStartupConfiguration.Features.InstantTracking | ArchitectStartupConfiguration.Features.ObjectTracking);
-
-		if (missingDeviceFeatures.areFeaturesMissing()) {
-			Toast toast =  Toast.makeText(this, missingDeviceFeatures.getMissingFeatureMessage() +
-					"Because of this some samples may not be visible.", Toast.LENGTH_LONG);
-			toast.show();
-		}
-
-		samples = getActivitiesToLaunch(includeIR, includeGeo, includeInstant, includeObject);
-		final String[] labels = new String[samples.keySet().size()];
-		for (int i = 0; i<labels.length; i++) {
-			labels[i] = samples.get(i).get(0).categoryName.replace("$", " ");
-		}
-		return labels;
-	}
-
-	protected int getContentViewId() {
-		return R.layout.list_startscreen;
-	}
-
-	public void buttonClicked(final View view)
-	 {
-		try {
-			this.startActivity( new Intent( this, Class.forName( "com.wikitude.samples.utils.urllauncher.ARchitectUrlLauncherActivity" ) ) );
-		} catch (ClassNotFoundException e) {
+		} catch(Exception e){
 			e.printStackTrace();
 		}
-	 }
 
-	private List<SampleMeta> getActivitiesToLaunch(final int position){
-		return samples.get(position);
+		System.out.println("Going to posthit activity!");
 	}
-
-	private Map<Integer, List<SampleMeta>> getActivitiesToLaunch(boolean includeIR, boolean includeGeo, boolean includeInstant, boolean includeObject){
-		final Map<Integer, List<SampleMeta>> pos2activites = new HashMap<Integer, List<SampleMeta>>();
-
-		String[] assetsIWant;
-
-		try {
-			assetsIWant = getAssets().list("samples");
-			int pos = -1;
-			String lastCategoryId = "";
-			for(final String asset: assetsIWant) {
-				if (!asset.substring(asset.length() - 4).contains(".")) {
-					try {
-						// don't include sample if it requires IR functionality on
-						// devices which don't support it.
-						boolean needIr = irSamples.contains(asset);
-						boolean needGeo = geoSamples.contains(asset);
-						boolean needInstant = instantSamples.contains(asset);
-						boolean needObject = objectSamples.contains(asset);
-						if ((includeIR || !needIr) && (includeGeo || !needGeo) && (includeInstant || !needInstant) && (includeObject || !needObject)) {
-							SampleMeta sampleMeta = new SampleMeta(asset, needIr, needGeo, needInstant);
-							if (!sampleMeta.categoryId.equals(lastCategoryId)) {
-								pos++;
-								pos2activites.put(pos, new ArrayList<SampleMeta>());
-							}
-							pos2activites.get(pos).add(sampleMeta);
-							lastCategoryId = sampleMeta.categoryId;
-						}
-					} catch (IllegalArgumentException e) {
-						// Log.e("Ignored Asset to load", asset + " invalid: "+ e.getMessage());
-					}
-				}
-			}
-
-		return pos2activites;
-
-
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	private static class SampleMeta {
-
-		final String path, categoryName, sampleName, categoryId;
-		final int sampleId;
-		final boolean hasGeo, hasIr, hasInstant;
-
-		public SampleMeta(String path, boolean hasIr, boolean hasGeo, boolean hasInstant) {
-			super();
-			this.path = path;
-			this.hasGeo = hasGeo;
-			this.hasIr = hasIr;
-			this.hasInstant = hasInstant;
-			if (path.indexOf("_")<0) {
-				throw new IllegalArgumentException("all files in asset folder must be folders and define category and subcategory as predefined (with underscore)");
-			}
-			this.categoryId = path.substring(0, path.indexOf("_"));
-			path = path.substring(path.indexOf("_")+1);
-			this.categoryName = path.substring(0, path.indexOf("_"));
-			path = path.substring(path.indexOf("_")+1);
-			this.sampleId = Integer.parseInt(path.substring(0, path.indexOf("_")));
-			path = path.substring(path.indexOf("_")+1);
-			this.sampleName = path;
-		}
-
-		@Override
-		public String toString() {
-			return "categoryId:" + this.categoryId + ", categoryName:" + this.categoryName + ", sampleId:" + this.sampleId +", sampleName: " + this.sampleName + ", path: " + this.path;
-		}
-	}
-
-	/**
-	 * helper to check if video-drawables are supported by this device. recommended to check before launching ARchitect Worlds with videodrawables
-	 * @return true if AR.VideoDrawables are supported, false if fallback rendering would apply (= show video fullscreen)
-	 */
-	public static final boolean isVideoDrawablesSupported() {
-		if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			// Lollipop: assume it's ok
-			// because creating a new GL context only to check this extension is overkill
-			return true;
-		} else {
-			String extensions = GLES20.glGetString( GLES20.GL_EXTENSIONS );
-			return extensions != null && extensions.contains( "GL_OES_EGL_image_external" );
-		}
-	}
-
-
 }

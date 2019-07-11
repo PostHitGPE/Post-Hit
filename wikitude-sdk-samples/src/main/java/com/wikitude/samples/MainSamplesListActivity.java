@@ -164,7 +164,6 @@ public class MainSamplesListActivity extends ListActivity {
 				/* launch activity */
 				this.startActivity(intent);
 			}
-
 		} catch (Exception e) {
 			/*
 			 * may never occur, as long as all SampleActivities exist and are

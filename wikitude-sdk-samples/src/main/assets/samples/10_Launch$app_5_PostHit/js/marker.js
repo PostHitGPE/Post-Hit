@@ -18,7 +18,7 @@ function Marker(poiData) {
     var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude, poiData.altitude);
 
     // create an AR.ImageDrawable for the marker in idle state
-    this.markerDrawable_idle = new AR.ImageDrawable(World.markerDrawable_idle, 2.5, {
+    this.markerDrawable_idle = new AR.ImageDrawable(World.markerDrawable_idle, 8, {// 2.5
         zOrder: 0,
         opacity: 1.0,
         /*
@@ -28,7 +28,7 @@ function Marker(poiData) {
     });
 
     // create an AR.ImageDrawable for the marker in selected state
-    this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 2.5, {
+    this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 1, {
         zOrder: 0,
         opacity: 0.0,
         onClick: null
@@ -41,19 +41,18 @@ function Marker(poiData) {
             y: 0.55
         },
         style: {
-            textColor: '#FFFFFF',
-            fontStyle: AR.CONST.FONT_STYLE.BOLD
+            textColor: '#000000'
         }
     });
 
     // create an AR.Label for the marker's description
-    this.descriptionLabel = new AR.Label(poiData.title.secondPart(), 0.8, {
+    this.descriptionLabel = new AR.Label(poiData.title.secondPart() + " " + poiData.nbPostHits, 1, {
         zOrder: 1,
         translate: {
             y: -0.55
         },
         style: {
-            textColor: '#FFFFFF'
+            textColor: '#000000'
         }
     });
 
@@ -68,7 +67,7 @@ function Marker(poiData) {
     /*
         The representation of an AR.GeoObject in the radar is defined in its drawables set (second argument of AR.GeoObject constructor). 
         Once drawables.radar is set the object is also shown on the radar e.g. as an AR.Circle
-    */
+          */
     this.radarCircle = new AR.Circle(0.03, {
         horizontalAnchor: AR.CONST.HORIZONTAL_ANCHOR.CENTER,
         opacity: 0.8,
@@ -285,9 +284,9 @@ Marker.prototype.isAnyAnimationRunning = function(marker) {
 
 // will truncate all strings longer than given max-length "n". e.g. "foobar".trunc(3) -> "foo..."
 String.prototype.firstPart = function() {
-    return this.slice(0, 9);
+    return this.slice(0, 12);
 };
 
 String.prototype.secondPart = function() {
-    return "-" + this.slice(9);
+    return "-" + this.slice(12);
 };

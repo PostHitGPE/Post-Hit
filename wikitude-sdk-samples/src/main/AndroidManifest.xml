@@ -58,23 +58,18 @@
             </intent-filter>
         </activity>
 
-        <!-- overview / listactivities -->
-        <activity android:name="com.wikitude.samples.MainSamplesListActivity"/>
+
+        <!-- register -->
+        <activity android:name="com.wikitude.samples.Register"/>
+        <!-- forgot password -->
+        <activity android:name="com.wikitude.samples.Forgot"/>
 
         <!-- poi detail screen -->
         <activity android:name="com.wikitude.samples.SamplePoiDetailActivity"/>
 
         <!-- cam activities -->
-        <activity android:name="com.wikitude.samples.SampleCamActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <activity android:name="com.wikitude.samples.SampleCam2Activity" android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <activity android:name="com.wikitude.samples.SampleCamContentFromNativeActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <activity android:name="com.wikitude.samples.SampleFrontCamActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <activity android:name="com.wikitude.samples.SamplePluginActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <activity android:name="com.wikitude.samples.FaceDetectionPluginActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <activity android:name="com.wikitude.samples.CustomCameraActivity" android:configChanges="orientation|keyboardHidden|screenSize" />
-        <activity android:name="com.wikitude.samples.MarkerTrackingPluginActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <activity android:name="com.wikitude.samples.SimpleInputPluginActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <activity android:name="com.wikitude.samples.AutoHdSampleCamActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity android:name="com.wikitude.samples.PostHitActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity android:name="com.wikitude.samples.AutoHdPostHitActivity" android:configChanges="orientation|keyboardHidden|screenSize"/>
         <!-- URL Launcher -->
         <activity
             android:name="com.wikitude.samples.utils.urllauncher.ARchitectUrlLauncherActivity"

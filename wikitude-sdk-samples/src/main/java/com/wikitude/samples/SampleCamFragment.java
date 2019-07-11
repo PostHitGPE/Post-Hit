@@ -39,7 +39,7 @@ public class SampleCamFragment extends AbstractArchitectCamFragmentV4{
 
 	@Override
 	public int getContentViewId() {
-		return R.layout.sample_cam;
+		return R.layout.post_hit;
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class SampleCamFragment extends AbstractArchitectCamFragmentV4{
 	
 	@Override
 	public String getWikitudeSDKLicenseKey() {
-		return WikitudeSDKConstants.WIKITUDE_SDK_KEY;
+		return Constants.WIKITUDE_SDK_KEY;
 	}
 	
 

@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\layout\\sample_cam_fragment_main.xml",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\layout\\sample_cam_fragment_main.xml"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\layout\\post_hit.xml",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\layout\\post_hit.xml"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\layout\\list_startscreen.xml",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\layout\\list_startscreen.xml"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\layout\\forgot.xml",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\layout\\forgot.xml"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\layout\\list_sample.xml",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\layout\\list_sample.xml"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\layout\\sample_1.xml",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\layout\\sample_1.xml"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\layout\\register.xml",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\layout\\register.xml"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\layout\\urllauncher_main.xml",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\layout\\urllauncher_main.xml"
+    },
+    {
+        "merged": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\build\\intermediates\\res\\merged\\debug\\layout\\sample_poidetail.xml",
+        "source": "D:\\ETNAFiles\\Master1\\tmp\\Post-Hit\\wikitude-sdk-samples\\src\\main\\res\\layout\\sample_poidetail.xml"
+    }
+]

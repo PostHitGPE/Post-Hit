@@ -387,7 +387,7 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 					}
 
 					if (lastKnownLocaton!=null && !isFinishing()) {
-						// TODO: you may replace this dummy implementation and instead load POI information e.g. from your database
+						// CHECK FLAG
 						poiData = getPoiInformation(lastKnownLocaton, 20);
 						callJavaScript("World.loadPoisFromJsonData", new String[] { poiData.toString() });
 					}
@@ -399,11 +399,7 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 		}
 	}
 
-	/**
-	 * call JacaScript in architectView
-	 * @param methodName
-	 * @param arguments
-	 */
+
 	private void callJavaScript(final String methodName, final String[] arguments) {
 		final StringBuilder argumentsString = new StringBuilder("");
 		for (int i= 0; i<arguments.length; i++) {
@@ -419,12 +415,6 @@ public abstract class AbstractArchitectCamActivity extends Activity implements A
 		}
 	}
 
-	/**
-	 * loads poiInformation and returns them as JSONArray. Ensure attributeNames of JSON POIs are well known in JavaScript, so you can parse them easily
-	 * @param userLocation the location of the user
-	 * @param numberOfPlaces number of places to load (at max)
-	 * @return POI information in JSONArray
-	 */
 	public static JSONArray getPoiInformation(final Location userLocation, final int numberOfPlaces) {
 
 		if (userLocation==null) {
